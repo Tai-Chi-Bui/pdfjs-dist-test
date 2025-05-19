@@ -8,7 +8,7 @@ const PDFViewer = dynamic(() => import('./PDFViewer'), {
 });
 
 export default function PDFComponent() {
-  const [pdfUrl, setPdfUrl] = useState<string>('/example.pdf');
+  const [pdfUrl, setPdfUrl] = useState<string>('/pdf/Sample-pdf.pdf');
   const [isUploading, setIsUploading] = useState(false);
 
   const handleFileUpload = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
