@@ -14,13 +14,7 @@ export default function PDFComponent() {
     <div className="pdf-component">
       <div className="header">
         <h1>PDF Viewer</h1>
-        <div className="file-upload">
-          <label htmlFor="pdf-upload" className="upload-button">
-            Upload PDF
-          </label>
-        </div>
       </div>
-
       <PDFViewer pdfUrl={pdfUrl} />
     </div>
   )
