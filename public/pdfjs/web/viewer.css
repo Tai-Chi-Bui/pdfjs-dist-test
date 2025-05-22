@@ -4715,6 +4715,7 @@
   );
   --secondaryToolbarButton-documentProperties-icon:url(images/secondaryToolbarButton-documentProperties.svg);
   --editorParams-stampAddImage-icon:url(images/toolbarButton-zoomIn.svg);
+  --toolbarButton-goBack-icon:url(images/toolbarButton-goBack.svg);
 }
 
 @supports (color: light-dark(red, red)) and (color: rgb(0 0 0 / 0)){
@@ -6392,4 +6393,46 @@ dialog :link{
   #scaleSelectContainer{
     display:none;
   }
+}
+
+.toolbarGoBackCustomButton{
+  height:100%;
+  aspect-ratio:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:none;
+  border:none;
+  color:var(--main-color);
+  outline:none;
+  border-radius:2px;
+  box-sizing:border-box;
+  font:message-box;
+  flex:none;
+  position:relative;
+  padding:0;
+  margin-inline-end:2px;
+}
+
+.toolbarGoBackCustomButton::before{
+  opacity:var(--toolbar-icon-opacity);
+  display:inline-block;
+  width:var(--icon-size);
+  height:var(--icon-size);
+  content:"";
+  background-color:var(--toolbar-icon-bg-color);
+  -webkit-mask-size:cover;
+          mask-size:cover;
+  -webkit-mask-position:center;
+          mask-position:center;
+  -webkit-mask-image:var(--toolbarButton-goBack-icon);
+          mask-image:var(--toolbarButton-goBack-icon);
+}
+
+.toolbarGoBackCustomButton:is(:hover, :focus-visible){
+  background-color:var(--button-hover-color);
+}
+
+.toolbarGoBackCustomButton:is(:hover, :focus-visible)::before{
+  background-color:var(--toolbar-icon-hover-bg-color);
 }

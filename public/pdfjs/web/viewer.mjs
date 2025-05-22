@@ -11649,7 +11649,7 @@ class PDFViewer {
   #supportsPinchToZoom = true;
   #textLayerMode = TextLayerMode.ENABLE;
   constructor(options) {
-    const viewerVersion = "5.2.225";
+    const viewerVersion = "5.2.0";
     if (version !== viewerVersion) {
       throw new Error(`The API version "${version}" does not match the Viewer version "${viewerVersion}".`);
     }
@@ -14392,6 +14392,14 @@ class Toolbar {
       element: options.download,
       eventName: "download"
     }, {
+      element: options.goBackCustomButton,
+      eventName: null,
+      onClick: () => {
+        window.parent.postMessage({
+          type: 'pdfjs-custom-back-button-clicked'
+        }, '*');
+      }
+    }, {
       element: options.editorFreeTextButton,
       eventName: "switchannotationeditormode",
       eventDetails: {
@@ -14517,20 +14525,18 @@ class Toolbar {
       element,
       eventName,
       eventDetails,
-      telemetry
+      onClick
     } of buttons) {
+      if (!element) {
+        continue;
+      }
       element.addEventListener("click", evt => {
-        if (eventName !== null) {
+        if (onClick) {
+          onClick();
+        } else if (eventName !== null) {
           eventBus.dispatch(eventName, {
             source: this,
-            ...eventDetails,
-            isFromKeyboard: evt.detail === 0
-          });
-        }
-        if (telemetry) {
-          eventBus.dispatch("reporttelemetry", {
-            source: this,
-            details: telemetry
+            ...eventDetails
           });
         }
       });
@@ -16810,8 +16816,8 @@ function beforeUnload(evt) {
 
 
 
-const pdfjsVersion = "5.2.225";
-const pdfjsBuild = "60574fb7e";
+const pdfjsVersion = "5.2.0";
+const pdfjsBuild = "d26eddf";
 const AppConstants = {
   LinkTarget: LinkTarget,
   RenderingStates: RenderingStates,
@@ -16837,6 +16843,7 @@ function getViewerConfiguration() {
       next: document.getElementById("next"),
       zoomIn: document.getElementById("zoomInButton"),
       zoomOut: document.getElementById("zoomOutButton"),
+      goBackCustomButton: document.getElementById("goBackCustomButton"),
       print: document.getElementById("printButton"),
       editorFreeTextButton: document.getElementById("editorFreeTextButton"),
       editorFreeTextParamsToolbar: document.getElementById("editorFreeTextParamsToolbar"),
