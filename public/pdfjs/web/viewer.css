@@ -4716,6 +4716,7 @@
   --secondaryToolbarButton-documentProperties-icon:url(images/secondaryToolbarButton-documentProperties.svg);
   --editorParams-stampAddImage-icon:url(images/toolbarButton-zoomIn.svg);
   --toolbarButton-goBack-icon:url(images/toolbarButton-goBack.svg);
+  --toolbarButton-documentList-icon:url(images/toolbarButton-viewThumbnail.svg);
 }
 
 @supports (color: light-dark(red, red)) and (color: rgb(0 0 0 / 0)){
@@ -6425,6 +6426,9 @@ dialog :link{
           mask-size:cover;
   -webkit-mask-position:center;
           mask-position:center;
+}
+
+#goBackCustomButton::before{
   -webkit-mask-image:var(--toolbarButton-goBack-icon);
           mask-image:var(--toolbarButton-goBack-icon);
 }
@@ -6434,5 +6438,50 @@ dialog :link{
 }
 
 .toolbarGoBackCustomButton:is(:hover, :focus-visible)::before{
+  background-color:var(--toolbar-icon-hover-bg-color);
+}
+
+.toolbarShowDocListCustomButton{
+  height:100%;
+  aspect-ratio:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:none;
+  border:none;
+  color:var(--main-color);
+  outline:none;
+  border-radius:2px;
+  box-sizing:border-box;
+  font:message-box;
+  flex:none;
+  position:relative;
+  padding:0;
+  margin-inline-end:2px;
+}
+
+.toolbarShowDocListCustomButton::before{
+  opacity:var(--toolbar-icon-opacity);
+  display:inline-block;
+  width:var(--icon-size);
+  height:var(--icon-size);
+  content:"";
+  background-color:var(--toolbar-icon-bg-color);
+  -webkit-mask-size:cover;
+          mask-size:cover;
+  -webkit-mask-position:center;
+          mask-position:center;
+}
+
+#showDocumentListButton::before{
+  -webkit-mask-image:var(--toolbarButton-documentList-icon);
+          mask-image:var(--toolbarButton-documentList-icon);
+}
+
+.toolbarShowDocListCustomButton:is(:hover, :focus-visible){
+  background-color:var(--button-hover-color);
+}
+
+.toolbarShowDocListCustomButton:is(:hover, :focus-visible)::before{
   background-color:var(--toolbar-icon-hover-bg-color);
 }

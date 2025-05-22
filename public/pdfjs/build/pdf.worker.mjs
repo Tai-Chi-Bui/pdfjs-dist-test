@@ -57653,7 +57653,7 @@ class WorkerMessageHandler {
 ;// ./src/pdf.worker.js
 
 const pdfjsVersion = "5.2.0";
-const pdfjsBuild = "d26eddf";
+const pdfjsBuild = "39d9acd";
 globalThis.pdfjsWorker = {
   WorkerMessageHandler: WorkerMessageHandler
 };

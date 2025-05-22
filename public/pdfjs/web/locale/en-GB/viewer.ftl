@@ -179,10 +179,10 @@ pdfjs-printing-not-ready = Warning: The PDF is not fully loaded for printing.
 ## Tooltips and alt text for side panel toolbar buttons
 
 pdfjs-toggle-sidebar-button =
-    .title = Toggle Sidebar
+    .title = View Page List
 pdfjs-toggle-sidebar-notification-button =
-    .title = Toggle Sidebar (document contains outline/attachments/layers)
-pdfjs-toggle-sidebar-button-label = Toggle Sidebar
+    .title = View Page List (document contains outline/attachments/layers)
+pdfjs-toggle-sidebar-button-label = View Page List
 pdfjs-document-outline-button =
     .title = Show Document Outline (double-click to expand/collapse all items)
 pdfjs-document-outline-button-label = Document Outline
