@@ -8,7 +8,7 @@ interface PDFViewerProps {
 
 const PDFViewer: React.FC<PDFViewerProps> = ({ pdfUrl }) => {
   // Use the locally hosted PDF.js viewer
-  const viewerUrl = `/pdfjs/web/viewer.html?file=${encodeURIComponent(pdfUrl)}`;
+  const viewerUrl = `/pdfjs/web/viewer.html?file=${encodeURIComponent(pdfUrl)}&attachments=true`;
 
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
