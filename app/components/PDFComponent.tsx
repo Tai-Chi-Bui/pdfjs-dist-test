@@ -1,5 +1,6 @@
 // components/PDFComponent.tsx
 'use client'
+import { useState, useCallback } from 'react';
 import dynamic from 'next/dynamic';
 
 const PDFViewer = dynamic(() => import('./PDFViewer'), {
@@ -7,15 +8,12 @@ const PDFViewer = dynamic(() => import('./PDFViewer'), {
 });
 
 export default function PDFComponent() {
-
-  const pdfUrl = '/pdf/Sample-pdf.pd'
-
   return (
     <div className="pdf-component">
       <div className="header">
         <h1>PDF Viewer</h1>
       </div>
-      <PDFViewer pdfUrl={pdfUrl} />
+      <PDFViewer pdfUrl={'/pdf/Sample-pdf.pdf'} />
     </div>
   )
 }
